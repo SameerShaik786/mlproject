@@ -11,6 +11,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from src.utils import save_obj
 
+from src.components.model_trainer import ModelTrainer
+
 @dataclass
 class DataTransmissionConfig:
     preprocessor_obj_file_path = os.path.join('artifacts','preprocessor.pkl')

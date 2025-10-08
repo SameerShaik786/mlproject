@@ -6,6 +6,7 @@ from src.logger import logging
 from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
 from src.components.data_transform import DataTransmission
+from src.components.model_trainer import ModelTrainer
 
 @dataclass
 class DataIngestionConfig:
@@ -45,4 +46,7 @@ if __name__ == "__main__":
     obj = DataIngestion()
     train_path,test_path = obj.initiate_data_ingestion()
     obj2 = DataTransmission()
-    obj2.initiate_data_transmission(train_path,test_path)
+    train_arr,test_arr,preprocessor_obj = obj2.initiate_data_transmission(train_path,test_path)
+    obj3 = ModelTrainer()
+    print(obj3.initiate_models(train_arr,test_arr,preprocessor_obj))
+
