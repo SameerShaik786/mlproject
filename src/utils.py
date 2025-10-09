@@ -40,8 +40,15 @@ def evaluation_modals(X_train,X_test,y_train,y_test,models,params):
             test_modal_score = r2_score(y_test,y_pred)
 
             report[list(models.keys())[i]] = test_modal_score
-
+            
         return report
 
+    except Exception as e:
+        raise CustomException(e,sys)
+    
+def load_file(file_name):
+    try:
+        with open(file_name,"rb") as file_obj:
+            return dill.load(file_obj)
     except Exception as e:
         raise CustomException(e,sys)

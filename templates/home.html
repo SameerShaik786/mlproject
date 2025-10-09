@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Info Form</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    select:focus, input[type="number"]:focus {
+      border-color: #007BFF;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Student Information Form</h2>
+    <form action="{{url_for('predicting')}}" method="post">
+      <!-- Gender -->
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender">
+        <option value="">Select your Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <!-- Race or Ethnicity -->
+      <label for="ethnicity">Race or Ethnicity</label>
+      <select id="ethnicity" name="ethnicity">
+        <option value="">Select Ethnicity</option>
+        <option value="group A">Group A</option>
+        <option value="group B">Group B</option>
+        <option value="group C">Group C</option>
+        <option value="group D">Group D</option>
+        <option value="group E">Group E</option>
+      </select>
+
+      <!-- Parental Level of Education -->
+      <label for="parent_education">Parental Level of Education</label>
+      <select id="parent_education" name="parent_education">
+        <option value="">Select Parent Education</option>
+        <option value="high school">high school</option>
+        <option value="some college">some college</option>
+        <option value="associate's degree">associate's degree</option>
+        <option value="bachelor's degree">bachelor's degree</option>
+        <option value="master's degree">master's degree</option>
+        <option value="some high school">some high school</option>
+      </select>
+
+      <!-- Lunch Type -->
+      <label for="lunch">Lunch Type</label>
+      <select id="lunch" name="lunch">
+        <option value="">Select Lunch Type</option>
+        <option value="standard">Standard</option>
+        <option value="free/reduced">Free/Reduced</option>
+      </select>
+
+      <!-- Test Preparation Course -->
+      <label for="test_course">Test Preparation Course</label>
+      <select id="test_course" name="test_course">
+        <option value="">Select Test Course</option>
+        <option value="completed">Completed</option>
+        <option value="none">None</option>
+      </select>
+
+      <!-- Writing Score -->
+      <label for="writing_score">Writing Score (out of 100)</label>
+      <input type="number" id="writing_score" name="writing_score" min="0" max="100" placeholder="Enter writing score">
+
+      <!-- Reading Score -->
+      <label for="reading_score">Reading Score (out of 100)</label>
+      <input type="number" id="reading_score" name="reading_score" min="0" max="100" placeholder="Enter reading score">
+
+      <button type="submit" class="submit-btn">Submit</button>
+      <h2>Resultant Maths score is {{results}}</h2>
+    </form>
+  </div>
+
+</body>
+</html>
