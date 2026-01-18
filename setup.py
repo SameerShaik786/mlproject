@@ -12,7 +12,7 @@ def get_requirements(file_path:str)->List[str]:         ##Returining a List
     return requirements
 
 setup(
-    name="ML_Project",
+    name="mlproject-study",
     version="0.0.1",
     author="Sameer",
     author_email="littlesameer2020@gmail.com",
